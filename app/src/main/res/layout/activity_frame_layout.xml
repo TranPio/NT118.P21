@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:text="Tran Hoai Phu"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textColor="#949490"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
     <ImageView
         android:src="@drawable/pio"
         android:layout_width="match_parent"
