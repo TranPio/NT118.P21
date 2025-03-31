@@ -13,16 +13,16 @@
         android:theme="@style/Theme.Practice"
         tools:targetApi="31">
         <activity
-            android:name=".RelativeLayout"
-            android:exported="false" />
+            android:name=".bai2_1"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
-            android:name=".FrameLayout"
-            android:exported="false" />
-        <activity
-            android:name=".bai2"
-            android:exported="false" />
-        <activity
-            android:name=".bai1"
+            android:name=".bai3"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +30,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".bai4"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RelativeLayout"
+            android:exported="false" />
+        <activity
+            android:name=".FrameLayout"
+            android:exported="false" />
+        <activity
+            android:name=".bai2"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".bai1"
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
