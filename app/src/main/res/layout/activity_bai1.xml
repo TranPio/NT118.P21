@@ -39,15 +39,17 @@
             android:weightSum="10"
             android:layout_width="0dp"
             android:layout_height="match_parent">
+
             <TextView
-                android:layout_weight="7"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="3"
-                android:textSize="40sp"
+                android:layout_weight="7"
+                android:background="#4CACE9"
                 android:gravity="center"
+                android:text="3"
                 android:textColor="#FFFFFF"
-                android:background="#4CACE9" />
+                android:textSize="40sp" />
+
             <LinearLayout
                 android:layout_weight="3"
                 android:orientation="horizontal"
