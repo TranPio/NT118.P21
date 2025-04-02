@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
+    android:weightSum="10"
+    android:orientation="vertical"
     android:padding="8dp">
 
     <!-- Màn hình hiển thị -->
@@ -12,56 +12,106 @@
         android:id="@+id/edtResult"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:gravity="end|center_vertical"
-        android:text="0"
-        android:textSize="60sp"
-        android:textColor="#FFFFFF"
+        android:layout_weight="3"
         android:background="@android:color/transparent"
-        android:inputType="none"
+        android:cursorVisible="false"
         android:focusable="false"
-        android:cursorVisible="false"/>
+        android:gravity="end|center_vertical"
+        android:inputType="none"
+        android:text="0"
+        android:textColor="#FFFFFF"
+        android:textSize="80sp" />
 
     <!-- Lưới nút bấm -->
     <GridLayout
         android:id="@+id/gridKeys"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_weight="7"
         android:columnCount="4"
-        android:rowCount="5"
-        android:padding="4dp">
+        android:padding="4dp"
+        android:rowCount="5">
 
         <!-- Hàng 1 -->
-        <Button android:text="AC" style="@style/KeyGray"/>
-        <Button android:text="+/-" style="@style/KeyGray"/>
-        <Button android:text="%" style="@style/KeyGray"/>
-        <Button android:text="÷" style="@style/KeyOrange"/>
+        <Button
+            style="@style/KeyGray"
+            android:text="AC" />
+
+        <Button
+            style="@style/KeyGray"
+            android:text="+/-" />
+
+        <Button
+            style="@style/KeyGray"
+            android:text="%" />
+
+        <Button
+            style="@style/KeyOrange"
+            android:text="÷" />
 
         <!-- Hàng 2 -->
-        <Button android:text="7" style="@style/KeyDark"/>
-        <Button android:text="8" style="@style/KeyDark"/>
-        <Button android:text="9" style="@style/KeyDark"/>
-        <Button android:text="×" style="@style/KeyOrange"/>
+        <Button
+            style="@style/KeyDark"
+            android:text="7" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="8" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="9" />
+
+        <Button
+            style="@style/KeyOrange"
+            android:text="×" />
 
         <!-- Hàng 3 -->
-        <Button android:text="4" style="@style/KeyDark"/>
-        <Button android:text="5" style="@style/KeyDark"/>
-        <Button android:text="6" style="@style/KeyDark"/>
-        <Button android:text="-" style="@style/KeyOrange"/>
+        <Button
+            style="@style/KeyDark"
+            android:text="4" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="5" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="6" />
+
+        <Button
+            style="@style/KeyOrange"
+            android:text="-" />
 
         <!-- Hàng 4 -->
-        <Button android:text="1" style="@style/KeyDark"/>
-        <Button android:text="2" style="@style/KeyDark"/>
-        <Button android:text="3" style="@style/KeyDark"/>
-        <Button android:text="+" style="@style/KeyOrange"/>
+        <Button
+            style="@style/KeyDark"
+            android:text="1" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="2" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="3" />
+
+        <Button
+            style="@style/KeyOrange"
+            android:text="+" />
 
         <!-- Hàng 5 -->
         <Button
-            android:text="0"
             style="@style/KeyDark"
-            android:layout_columnSpan="2"/>
-        <Button android:text="," style="@style/KeyDark"/>
-        <Button android:text="=" style="@style/KeyOrange"/>
+            android:layout_columnSpan="2"
+            android:text="0" />
+
+        <Button
+            style="@style/KeyDark"
+            android:text="," />
+
+        <Button
+            style="@style/KeyOrange"
+            android:text="=" />
     </GridLayout>
 </LinearLayout>
