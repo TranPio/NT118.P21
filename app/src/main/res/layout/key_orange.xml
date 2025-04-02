@@ -2,11 +2,12 @@
 <Button xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="0dp"
     android:layout_height="0dp"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="4dp"
     android:layout_columnWeight="1"
     android:layout_rowWeight="1"
-    android:text="@null"
-    android:tag=""
+    android:text=""
     android:textColor="#FFFFFF"
     android:textSize="28sp"
-    android:background="@drawable/rounded_button_orange" />
+    android:background="@drawable/rounded_button_orange"
+    tools:text="G" />

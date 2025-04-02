@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/bai4"
-    android:weightSum="10"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
-    android:background="#000000">
+    android:background="#000000"
+    android:padding="8dp">
 
-    <!-- Display -->
+    <!-- Màn hình hiển thị -->
     <EditText
         android:id="@+id/edtResult"
         android:layout_width="match_parent"
@@ -24,9 +22,9 @@
         android:focusable="false"
         android:cursorVisible="false"/>
 
-    <!-- Button Grid -->
+    <!-- Lưới nút bấm -->
     <GridLayout
-        android:id="@+id/gridButtons"
+        android:id="@+id/gridKeys"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
@@ -34,33 +32,36 @@
         android:rowCount="5"
         android:padding="4dp">
 
-        <!-- First Row -->
-        <include layout="@layout/key_gray" android:tag="AC"/>
-        <include layout="@layout/key_gray" android:tag="+/-"/>
-        <include layout="@layout/key_gray" android:tag="%"/>
-        <include layout="@layout/key_orange" android:tag="÷"/>
+        <!-- Hàng 1 -->
+        <Button android:text="AC" style="@style/KeyGray"/>
+        <Button android:text="+/-" style="@style/KeyGray"/>
+        <Button android:text="%" style="@style/KeyGray"/>
+        <Button android:text="÷" style="@style/KeyOrange"/>
 
-        <!-- Second Row -->
-        <include layout="@layout/key_dark" android:tag="7"/>
-        <include layout="@layout/key_dark" android:tag="8"/>
-        <include layout="@layout/key_dark" android:tag="9"/>
-        <include layout="@layout/key_orange" android:tag="×"/>
+        <!-- Hàng 2 -->
+        <Button android:text="7" style="@style/KeyDark"/>
+        <Button android:text="8" style="@style/KeyDark"/>
+        <Button android:text="9" style="@style/KeyDark"/>
+        <Button android:text="×" style="@style/KeyOrange"/>
 
-        <!-- Third Row -->
-        <include layout="@layout/key_dark" android:tag="4"/>
-        <include layout="@layout/key_dark" android:tag="5"/>
-        <include layout="@layout/key_dark" android:tag="6"/>
-        <include layout="@layout/key_orange" android:tag="-"/>
+        <!-- Hàng 3 -->
+        <Button android:text="4" style="@style/KeyDark"/>
+        <Button android:text="5" style="@style/KeyDark"/>
+        <Button android:text="6" style="@style/KeyDark"/>
+        <Button android:text="-" style="@style/KeyOrange"/>
 
-        <!-- Fourth Row -->
-        <include layout="@layout/key_dark" android:tag="1"/>
-        <include layout="@layout/key_dark" android:tag="2"/>
-        <include layout="@layout/key_dark" android:tag="3"/>
-        <include layout="@layout/key_orange" android:tag="+"/>
+        <!-- Hàng 4 -->
+        <Button android:text="1" style="@style/KeyDark"/>
+        <Button android:text="2" style="@style/KeyDark"/>
+        <Button android:text="3" style="@style/KeyDark"/>
+        <Button android:text="+" style="@style/KeyOrange"/>
 
-        <!-- Fifth Row -->
-        <include layout="@layout/key_dark" android:tag="0"/>
-        <include layout="@layout/key_dark" android:tag=","/>
-        <include layout="@layout/key_orange" android:tag="="/>
+        <!-- Hàng 5 -->
+        <Button
+            android:text="0"
+            style="@style/KeyDark"
+            android:layout_columnSpan="2"/>
+        <Button android:text="," style="@style/KeyDark"/>
+        <Button android:text="=" style="@style/KeyOrange"/>
     </GridLayout>
 </LinearLayout>
