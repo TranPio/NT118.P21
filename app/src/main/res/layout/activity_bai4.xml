@@ -1,79 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bai4"
+    android:weightSum="10"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
-    android:padding="4dp">
+    android:padding="8dp"
+    android:background="#000000">
 
-    <!-- Kết quả hiển thị -->
+    <!-- Display -->
     <EditText
         android:id="@+id/edtResult"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
-        android:gravity="right|center_vertical"
+        android:gravity="end|center_vertical"
         android:text="0"
+        android:textSize="60sp"
         android:textColor="#FFFFFF"
-        android:textSize="64sp"
         android:background="@android:color/transparent"
-        android:focusable="false"
-        android:cursorVisible="false"
         android:inputType="none"
-        android:paddingEnd="16dp"/>
+        android:focusable="false"
+        android:cursorVisible="false"/>
 
-    <!-- Bảng nút bấm -->
-    <TableLayout
+    <!-- Button Grid -->
+    <GridLayout
+        android:id="@+id/gridButtons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:stretchColumns="*">
+        android:columnCount="4"
+        android:rowCount="5"
+        android:padding="4dp">
 
-        <!-- Hàng 1 -->
-        <TableRow>
-            <Button android:text="AC" android:backgroundTint="#A5A5A5" android:textColor="#000000" />
-            <Button android:text="+/-" android:backgroundTint="#A5A5A5" android:textColor="#000000" />
-            <Button android:text="%" android:backgroundTint="#A5A5A5" android:textColor="#000000" />
-            <Button android:text="÷" android:backgroundTint="#FF9500" android:textColor="#FFFFFF" />
-        </TableRow>
+        <!-- First Row -->
+        <include layout="@layout/key_gray" android:tag="AC"/>
+        <include layout="@layout/key_gray" android:tag="+/-"/>
+        <include layout="@layout/key_gray" android:tag="%"/>
+        <include layout="@layout/key_orange" android:tag="÷"/>
 
-        <!-- Hàng 2 -->
-        <TableRow>
-            <Button android:text="7" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="8" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="9" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="×" android:backgroundTint="#FF9500" android:textColor="#FFFFFF" />
-        </TableRow>
+        <!-- Second Row -->
+        <include layout="@layout/key_dark" android:tag="7"/>
+        <include layout="@layout/key_dark" android:tag="8"/>
+        <include layout="@layout/key_dark" android:tag="9"/>
+        <include layout="@layout/key_orange" android:tag="×"/>
 
-        <!-- Hàng 3 -->
-        <TableRow>
-            <Button android:text="4" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="5" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="6" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="-" android:backgroundTint="#FF9500" android:textColor="#FFFFFF" />
-        </TableRow>
+        <!-- Third Row -->
+        <include layout="@layout/key_dark" android:tag="4"/>
+        <include layout="@layout/key_dark" android:tag="5"/>
+        <include layout="@layout/key_dark" android:tag="6"/>
+        <include layout="@layout/key_orange" android:tag="-"/>
 
-        <!-- Hàng 4 -->
-        <TableRow>
-            <Button android:text="1" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="2" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="3" android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="+" android:backgroundTint="#FF9500" android:textColor="#FFFFFF" />
-        </TableRow>
+        <!-- Fourth Row -->
+        <include layout="@layout/key_dark" android:tag="1"/>
+        <include layout="@layout/key_dark" android:tag="2"/>
+        <include layout="@layout/key_dark" android:tag="3"/>
+        <include layout="@layout/key_orange" android:tag="+"/>
 
-        <!-- Hàng 5 -->
-        <TableRow>
-            <Button
-                android:text="0"
-                android:layout_span="2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:backgroundTint="#333333"
-                android:textColor="#FFFFFF" />
-            <Button android:text="," android:backgroundTint="#333333" android:textColor="#FFFFFF" />
-            <Button android:text="=" android:backgroundTint="#FF9500" android:textColor="#FFFFFF" />
-        </TableRow>
-    </TableLayout>
+        <!-- Fifth Row -->
+        <include layout="@layout/key_dark" android:tag="0"/>
+        <include layout="@layout/key_dark" android:tag=","/>
+        <include layout="@layout/key_orange" android:tag="="/>
+    </GridLayout>
 </LinearLayout>
