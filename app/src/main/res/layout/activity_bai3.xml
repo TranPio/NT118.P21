@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:weightSum="10"
-    android:layout_width="match_parent"
+    android:weightSum="10" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:padding="8dp">
-
+    android:background="#FFFFFF">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:background="#1976D2"
+        android:layout_height="0dp" android:layout_weight="2"   android:background="#1976D2"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="12dp">
@@ -40,124 +36,122 @@
             android:backgroundTint="#FFFFFF" />
     </LinearLayout>
 
-    <TableLayout
-        android:layout_weight="8"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stretchColumns="*"
-        android:paddingTop="16dp">
+        android:layout_height="0dp"  android:layout_weight="8"    android:columnCount="2"      android:rowCount="3"        android:orientation="horizontal"
+        android:padding="16dp"       android:alignmentMode="alignMargins" android:columnOrderPreserved="false">
 
-        <!-- Hàng 1 -->
-        <TableRow>
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"    android:layout_gravity="fill"   android:padding="8dp">
+
+            <ImageView
+                android:src="@drawable/personal"
+                android:layout_width="80dp" android:layout_height="80dp"/>
+            <TextView
                 android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:src="@drawable/personal"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Cá nhân"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="8dp" android:text="Cá nhân"
+                android:textSize="18sp" android:textColor="#000000"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:padding="8dp">
+
+            <ImageView
+                android:src="@drawable/checklist"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+            <TextView
                 android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:src="@drawable/checklist"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Chi tiêu bán hàng"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-        </TableRow>
-
-        <!-- Hàng 2 -->
-        <TableRow>
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Chi tiêu bán hàng"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:padding="8dp">
+
+            <ImageView
+                android:src="@drawable/handshake"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+            <TextView
                 android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:src="@drawable/handshake"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Khách hàng"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Khách hàng"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:padding="8dp">
+
+            <ImageView
+                android:src="@drawable/roadmap"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+            <TextView
                 android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:src="@drawable/roadmap"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Danh sách tuyến"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-        </TableRow>
-
-        <!-- Hàng 3 -->
-        <TableRow>
-            <LinearLayout />
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Danh sách tuyến"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="fill"
+            android:padding="8dp">
+            <ImageView
+                android:src="@drawable/cart"
+                android:layout_width="80dp"
+                android:layout_height="80dp"/>
+            <TextView
                 android:layout_height="wrap_content"
-                android:padding="8dp">
-
-                <ImageView
-                    android:src="@drawable/cart"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"/>
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="Tra cứu sản phẩm"
-                    android:textSize="20sp"
-                    android:gravity="center"/>
-            </LinearLayout>
-
-            <!-- Ô trống hoặc có thể thêm chức năng khác -->
-            <LinearLayout
-                android:orientation="vertical"
-                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </TableRow>
+                android:layout_marginTop="8dp"
+                android:text="Tra cứu sản phẩm"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
+        </LinearLayout>
 
-    </TableLayout>
+    </GridLayout>
 </LinearLayout>
