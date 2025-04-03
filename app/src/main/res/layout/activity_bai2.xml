@@ -11,8 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:text="CẬP NHẬT THÔNG TIN CÁ NHÂN"
+        android:layout_weight="3" android:text="CẬP NHẬT THÔNG TIN CÁ NHÂN"
         android:gravity="center"
         android:textSize="28sp"
         android:textStyle="bold"
@@ -22,28 +21,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="8"
-        android:orientation="horizontal"
-        android:padding="16dp"
+        android:layout_weight="7" android:orientation="horizontal"
         android:gravity="top"
         android:baselineAligned="false">
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginEnd="8dp"
-            android:paddingTop="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:gravity="center_vertical|end"
-                android:text="CMND:"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginBottom="16dp"/>
+            android:paddingTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp">    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:gravity="center_vertical|end"
+            android:text="CMND:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,17 +65,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginEnd="16dp">
-
-            <EditText
-                android:id="@+id/edtCMND"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:hint="Nhập CMND"
-                android:inputType="number"
-                android:textSize="18sp"
-                android:layout_marginBottom="16dp" />
+            android:layout_marginStart="8dp"  android:layout_marginEnd="8dp">   <EditText
+            android:id="@+id/edtCMND"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:hint="Nhập CMND"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
 
             <EditText
                 android:id="@+id/edtPhone"
@@ -107,18 +100,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal">
+
                 <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCapNhat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:backgroundTint="#4170F4"
-                app:cornerRadius="8dp"
-                android:text="Cập nhật"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:layout_marginEnd="10dp"/>
+                    android:id="@+id/btnCapNhat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:backgroundTint="#4170F4"
+                    app:cornerRadius="8dp"
+                    android:text="Cập nhật"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginEnd="10dp"/>
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLamLai"
@@ -141,6 +135,7 @@
             android:layout_height="180dp"
             android:scaleType="centerCrop"
             android:src="@drawable/pio"
-            android:contentDescription="Ảnh đại diện" /> </LinearLayout>
+            android:contentDescription="Ảnh đại diện"
+            android:layout_marginStart="8dp"  android:layout_marginEnd="16dp"/> </LinearLayout>
 
 </LinearLayout>
