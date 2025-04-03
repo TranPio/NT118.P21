@@ -9,7 +9,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class RelativeLayout extends AppCompatActivity {
+public class quytrinhthietke extends AppCompatActivity {
 
     TextView txtNoiDung; // toàn cục
 
