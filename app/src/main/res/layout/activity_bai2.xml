@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
     android:weightSum="10">
+
     <TextView
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="2"
-    android:text="CẬP NHẬT THÔNG TIN CÁ NHÂN"
-    android:gravity="center"
-    android:textSize="28sp"
-    android:textStyle="bold"
-    android:textColor="#FFFFFF"
-    android:background="#4170F4" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="CẬP NHẬT THÔNG TIN CÁ NHÂN"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#4170F4" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,41 +25,45 @@
         android:layout_weight="8"
         android:orientation="horizontal"
         android:padding="16dp"
+        android:gravity="top"
         android:baselineAligned="false">
-        <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginEnd="8dp"
-        android:paddingTop="8dp">
-            <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:gravity="center_vertical|end"
-        android:text="CMND:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
-            <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:minHeight="48dp"
-        android:gravity="center_vertical|end"
-        android:text="Số điện thoại:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:gravity="center_vertical|end"
-            android:text="Địa chỉ:"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:layout_marginEnd="8dp"
+            android:paddingTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical|end"
+                android:text="CMND:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical|end"
+                android:text="Số điện thoại:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:gravity="center_vertical|end"
+                android:text="Địa chỉ:"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -100,25 +106,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="start">
-
-                <Button
+                android:gravity="center_horizontal">
+                <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCapNhat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background_blue"
-                    android:text="Cập nhật"
+                app:backgroundTint="#4170F4"
+                app:cornerRadius="8dp"
+                android:text="Cập nhật"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:layout_marginEnd="10dp"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLamLai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_background_blue"
+                    app:backgroundTint="#4170F4"
+                    app:cornerRadius="8dp"
                     android:text="Làm lại"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
@@ -130,9 +137,10 @@
 
         <ImageView
             android:id="@+id/imgAvatar"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
+            android:layout_width="150dp"
+            android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/pio"  /> </LinearLayout>
+            android:src="@drawable/pio"
+            android:contentDescription="Ảnh đại diện" /> </LinearLayout>
 
 </LinearLayout>
