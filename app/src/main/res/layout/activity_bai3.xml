@@ -45,18 +45,22 @@
         android:layout_height="0dp"
         android:layout_weight="8"
         android:columnCount="2"
-        android:rowCount="3"        android:orientation="horizontal"
+        android:rowCount="4"
+        android:orientation="horizontal"
         android:padding="16dp"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false">
 
         <LinearLayout
             android:orientation="vertical"
-            android:gravity="center" android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_row="0"       android:layout_column="0"    android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
             android:padding="8dp">
 
             <ImageView
@@ -69,18 +73,22 @@
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Cá nhân"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textSize="19sp"
                 android:textColor="#000000"
                 android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:gravity="center" android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_row="0"       android:layout_column="1"    android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="fill"
             android:padding="8dp">
 
             <ImageView
@@ -93,18 +101,22 @@
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Chi tiêu bán hàng"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textSize="19sp"
                 android:textColor="#000000"
                 android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:gravity="center" android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_row="1"       android:layout_column="0"    android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
             android:padding="8dp">
 
             <ImageView
@@ -116,19 +128,23 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textStyle="bold"
                 android:text="Khách hàng"
-                android:textSize="20sp"
+                android:textSize="19sp"
                 android:textColor="#000000"
                 android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
-            android:gravity="center" android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_row="1"       android:layout_column="1"    android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
             android:padding="8dp">
 
             <ImageView
@@ -141,18 +157,31 @@
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Danh sách tuyến"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textSize="19sp"
                 android:textColor="#000000"
                 android:gravity="center"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center" android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_row="2"       android:layout_column="1"    android:layout_gravity="fill"
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_gravity="fill"
             android:padding="8dp">
             <ImageView
                 android:src="@drawable/cart"
@@ -163,8 +192,9 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textStyle="bold"
                 android:text="Tra cứu sản phẩm"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="#000000"
                 android:gravity="center"/>
         </LinearLayout>
