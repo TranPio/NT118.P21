@@ -17,9 +17,12 @@ public class quytrinhthietke extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_relative_layout);
-
+        setContentView(R.layout.activity_quytrinhthietke);
         // ánh xạ
         txtNoiDung = findViewById(R.id.textViewNoiDung);
+
+        // viết code
+        txtNoiDung.setText("Quy trình thiết kế ứng dụng");
+
     }
 }
