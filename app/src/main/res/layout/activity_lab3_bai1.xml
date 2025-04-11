@@ -12,9 +12,10 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thông tin cá nhân"
+        android:background="#03A9F4"
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
@@ -64,9 +65,11 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bằng cấp:"
+        android:text="Bằng cấp"
+        android:gravity="center"
+        android:background="#A0B6FD"
         android:textSize="16sp"
         android:layout_marginTop="16dp"/>
 
@@ -101,7 +104,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sở thích:"
+        android:text="Sở thích"
+        android:gravity="center"
+        android:background="#A0B6FD"
         android:textSize="16sp"
         android:layout_marginTop="16dp"/>
     <TextView
@@ -151,15 +156,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         android:gravity="top"
         android:minLines="3"
-        android:background="@android:drawable/edit_text"/> <Button
-    android:id="@+id/btnGuiThongTin"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Gửi thông tin"
-    android:layout_gravity="center_horizontal"
-    android:layout_marginTop="24dp"/>
+        android:background="@android:drawable/edit_text"/>
+        <Button
+        android:id="@+id/btnGuiThongTin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gửi thông tin"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"/>
 
 </LinearLayout>
 </ScrollView>
