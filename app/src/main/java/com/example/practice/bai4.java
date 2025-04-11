@@ -1,10 +1,14 @@
 package com.example.practice;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.text.TextPaint;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +17,10 @@ public class bai4 extends AppCompatActivity {
     private EditText edtResult;
     private GridLayout gridLayoutKeys;
 
+    private final float MAX_TEXT_SIZE_SP = 60f;
+    private final float MIN_TEXT_SIZE_SP = 12f;
+    private final float TEXT_STEP_SP = 2f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +28,20 @@ public class bai4 extends AppCompatActivity {
 
         edtResult = findViewById(R.id.edtResult);
         gridLayoutKeys = findViewById(R.id.gridKeys);
+
+        // Set text size mặc định
+        edtResult.setTextSize(TypedValue.COMPLEX_UNIT_SP, MAX_TEXT_SIZE_SP);
+
+        // Gắn TextWatcher để tự điều chỉnh kích thước khi text thay đổi
+        edtResult.addTextChangedListener(new TextWatcher() {
+            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                adjustTextSizeToFit(edtResult);
+            }
+        });
 
         int childCount = gridLayoutKeys.getChildCount();
         for (int i = 0; i < childCount; i++) {
@@ -32,18 +54,14 @@ public class bai4 extends AppCompatActivity {
                         String btnText = ((Button) v).getText().toString();
 
                         if (btnText.equals("AC")) {
-                            // Xóa toàn bộ nội dung
                             edtResult.setText("");
                         } else if (btnText.equals("=")) {
-                            // Thực hiện đánh giá biểu thức
                             String expression = edtResult.getText().toString();
-                            // Thay thế các kí tự đặc biệt: "×" thành "*" và "÷" thành "/"
                             expression = expression.replace("×", "*")
                                     .replace("÷", "/")
-                                    .replace(",", "."); // nếu sử dụng dấu phẩy cho số thực
+                                    .replace(",", ".");
                             try {
                                 double result = evaluateExpression(expression);
-                                // Hiển thị kết quả, nếu kết quả là số nguyên thì không hiện phần thập phân
                                 if(result == (int) result) {
                                     edtResult.setText(String.valueOf((int) result));
                                 } else {
@@ -53,7 +71,6 @@ public class bai4 extends AppCompatActivity {
                                 edtResult.setText("Error");
                             }
                         } else if (btnText.equals("+/-")) {
-                            // Đảo dấu số hiển thị hiện tại
                             String current = edtResult.getText().toString();
                             if (!current.isEmpty()) {
                                 if (current.startsWith("-"))
@@ -62,7 +79,6 @@ public class bai4 extends AppCompatActivity {
                                     edtResult.setText("-" + current);
                             }
                         } else {
-                            // Với các nút số và phép toán: nối thêm kí tự vào EditText
                             edtResult.append(btnText);
                         }
                     }
@@ -71,73 +87,79 @@ public class bai4 extends AppCompatActivity {
         }
     }
 
+    // Hàm điều chỉnh kích thước chữ của EditText khi quá dài
+    private void adjustTextSizeToFit(EditText editText) {
+        int viewWidth = editText.getWidth()
+                - editText.getPaddingLeft()
+                - editText.getPaddingRight();
+
+        if (viewWidth <= 0) return;
+
+        String text = editText.getText().toString();
+        if (text.isEmpty()) {
+            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, MAX_TEXT_SIZE_SP);
+            return;
+        }
+
+        TextPaint paint = editText.getPaint();
+        float trySize = MAX_TEXT_SIZE_SP;
+        paint.setTextSize(spToPx(trySize));
+
+        while (trySize > MIN_TEXT_SIZE_SP && paint.measureText(text) > viewWidth) {
+            trySize -= TEXT_STEP_SP;
+            paint.setTextSize(spToPx(trySize));
+        }
+
+        editText.setTextSize(TypedValue.COMPLEX_UNIT_SP, trySize);
+    }
+
+    private float spToPx(float sp) {
+        return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_SP,
+                sp,
+                getResources().getDisplayMetrics()
+        );
+    }
+
     /**
-     * Phương thức đánh giá biểu thức toán học với các phép cộng, trừ, nhân, chia
-     * Sử dụng thuật toán đệ quy descent để phân tích biểu thức (hỗ trợ thứ tự ưu tiên).
+     * Đánh giá biểu thức số học
      */
     private double evaluateExpression(final String str) {
         return new Object() {
             int pos = -1, ch;
-
-            void nextChar() {
-                pos++;
-                ch = pos < str.length() ? str.charAt(pos) : -1;
-            }
-
+            void nextChar() { pos++; ch = pos < str.length() ? str.charAt(pos) : -1; }
             boolean eat(int charToEat) {
                 while (ch == ' ') nextChar();
-                if (ch == charToEat) {
-                    nextChar();
-                    return true;
-                }
+                if (ch == charToEat) { nextChar(); return true; }
                 return false;
             }
-
             double parse() {
                 nextChar();
                 double x = parseExpression();
-                if (pos < str.length()) {
-                    throw new RuntimeException("Unexpected: " + (char) ch);
-                }
+                if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
                 return x;
             }
-
-            // Xử lý phép cộng và trừ
             double parseExpression() {
                 double x = parseTerm();
                 for (;;) {
-                    if (eat('+')) {
-                        x += parseTerm(); // Phép cộng
-                    } else if (eat('-')) {
-                        x -= parseTerm(); // Phép trừ
-                    } else {
-                        return x;
-                    }
+                    if (eat('+')) x += parseTerm();
+                    else if (eat('-')) x -= parseTerm();
+                    else return x;
                 }
             }
-
-            // Xử lý phép nhân và chia
             double parseTerm() {
                 double x = parseFactor();
                 for (;;) {
-                    if (eat('*')) {
-                        x *= parseFactor();
-                    } else if (eat('/')) {
-                        x /= parseFactor();
-                    } else {
-                        return x;
-                    }
+                    if (eat('*')) x *= parseFactor();
+                    else if (eat('/')) x /= parseFactor();
+                    else return x;
                 }
             }
-
-            // Xử lý số và dấu +/-
             double parseFactor() {
                 if (eat('+')) return parseFactor();
                 if (eat('-')) return -parseFactor();
-
                 double x;
                 int startPos = this.pos;
-                // Nếu là số hoặc dấu chấm thập phân
                 if ((ch >= '0' && ch <= '9') || ch == '.') {
                     while ((ch >= '0' && ch <= '9') || ch == '.') nextChar();
                     x = Double.parseDouble(str.substring(startPos, this.pos));

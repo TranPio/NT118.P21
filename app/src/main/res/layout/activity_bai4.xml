@@ -15,24 +15,19 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:gravity="end|center_vertical"
-
         android:text=""
         android:textColor="#FFFFFF"
+        android:textSize="60sp"
+
         android:background="@android:color/transparent"
         android:inputType="none"
         android:focusable="false"
         android:cursorVisible="false"
-
-        android:autoSizeTextType="uniform"
-        android:autoSizeMinTextSize="10sp"
-        android:autoSizeMaxTextSize="60sp"
-        android:autoSizeStepGranularity="2sp"
-
         android:maxLines="1"
         android:ellipsize="none"
         android:scrollHorizontally="false"
-
     />
+
 
 
 
