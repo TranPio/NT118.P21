@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,7 +10,7 @@
     android:padding="8dp">
 
     <!-- Màn hình hiển thị -->
-    <EditText
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/edtResult"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,19 +18,14 @@
         android:gravity="end|center_vertical"
         android:text=""
         android:textColor="#FFFFFF"
-        android:textSize="60sp"
-
         android:background="@android:color/transparent"
-        android:inputType="none"
-        android:focusable="false"
-        android:cursorVisible="false"
         android:maxLines="1"
-        android:ellipsize="none"
+        android:ellipsize="start"
         android:scrollHorizontally="false"
-    />
-
-
-
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="14sp"
+        app:autoSizeMaxTextSize="60sp"
+        app:autoSizeStepGranularity="2sp" />
 
     <!-- Lưới nút bấm -->
     <GridLayout
