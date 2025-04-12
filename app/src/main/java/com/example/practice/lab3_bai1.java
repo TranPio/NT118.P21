@@ -1,4 +1,4 @@
-package com.example.practice; // Giữ package của bạn
+package com.example.practice;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +34,6 @@ public class lab3_bai1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // --- Xử lý Edge-to-Edge ---
         // Bước 1: Cho phép vẽ tràn viền (quan trọng: gọi trước setContentView)
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         // -------------------------
@@ -42,7 +41,7 @@ public class lab3_bai1 extends AppCompatActivity {
         setContentView(R.layout.activity_lab3_bai1); // Đảm bảo tên layout đúng
 
         // --- Ánh xạ Views ---
-        mainLayout = findViewById(R.id.main_content_layout); // Ánh xạ LinearLayout con
+        mainLayout = findViewById(R.id.main_content_layout);
         tvErrorHoTen = findViewById(R.id.tvErrorHoTen);
         tvErrorCMND = findViewById(R.id.tvErrorCMND);
         tvErrorSoThich = findViewById(R.id.tvErrorSoThich);
@@ -56,19 +55,12 @@ public class lab3_bai1 extends AppCompatActivity {
         btnGuiThongTin = findViewById(R.id.btnGuiThongTin);
         // --------------------
 
-        // --- Xử lý Edge-to-Edge ---
         // Bước 2: Lắng nghe và áp dụng WindowInsets cho LinearLayout con
         ViewCompat.setOnApplyWindowInsetsListener(mainLayout, (v, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Áp dụng padding cho LinearLayout con thay vì ScrollView
-            // Giữ nguyên paddingStart/End đã có trong XML, chỉ cập nhật top/bottom
             v.setPadding(v.getPaddingLeft(), insets.top, v.getPaddingRight(), insets.bottom);
-
-            // Trả về windowInsets gốc để các view con khác (nếu có) có thể xử lý tiếp
             return windowInsets;
         });
-        // -------------------------
-
 
         // --- Xử lý sự kiện nút ---
         btnGuiThongTin.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +71,6 @@ public class lab3_bai1 extends AppCompatActivity {
                 }
             }
         });
-        // -----------------------
     }
 
     private boolean validateInput() {

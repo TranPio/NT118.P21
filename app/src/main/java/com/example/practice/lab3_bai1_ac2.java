@@ -1,4 +1,4 @@
-package com.example.practice; // Giữ package của bạn
+package com.example.practice;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -23,7 +23,6 @@ public class lab3_bai1_ac2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // --- Xử lý Edge-to-Edge ---
         // Bước 1: Cho phép vẽ tràn viền (quan trọng: gọi trước setContentView)
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         // -------------------------
@@ -40,15 +39,10 @@ public class lab3_bai1_ac2 extends AppCompatActivity {
         btnDong = findViewById(R.id.btnDong);
         // --------------------
 
-        // --- Xử lý Edge-to-Edge ---
         // Bước 2: Lắng nghe và áp dụng WindowInsets cho layout gốc
         ViewCompat.setOnApplyWindowInsetsListener(rootLayout, (v, windowInsets) -> {
             Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Áp dụng padding cho layout gốc
-            // Giữ nguyên paddingStart/End đã có trong XML, chỉ cập nhật top/bottom
             v.setPadding(v.getPaddingLeft(), insets.top, v.getPaddingRight(), insets.bottom);
-
-            // Trả về windowInsets gốc
             return windowInsets;
         });
         // -------------------------
@@ -64,22 +58,19 @@ public class lab3_bai1_ac2 extends AppCompatActivity {
             String boSung = extras.getString("thongTinBoSung");
             if (TextUtils.isEmpty(boSung)) {
                 tvThongTinBoSung.setVisibility(View.GONE); // Ẩn nếu trống
-                // Hoặc hiển thị một text mặc định:
                 // tvThongTinBoSung.setText("Không có thông tin bổ sung.");
             } else {
                 tvThongTinBoSung.setText(boSung);
-                tvThongTinBoSung.setVisibility(View.VISIBLE); // Đảm bảo hiển thị
+                tvThongTinBoSung.setVisibility(View.VISIBLE);
             }
         }
-        // -----------------------------
 
         // --- Xử lý nút Đóng ---
         btnDong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // đóng Activity 2, quay lại Activity 1
+                finish();
             }
         });
-        // --------------------
     }
 }
