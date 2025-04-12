@@ -26,10 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".quytrinhthietke"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".bai2"
             android:exported="false"
             android:screenOrientation="landscape">
