@@ -133,7 +133,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginTop="4dp">
 
             <CheckBox
@@ -175,11 +175,8 @@
 
         <Button
             android:id="@+id/btnGuiThongTin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/Button_Lab3"
             android:text="Gửi thông tin"
-            android:textSize="18sp"
-            android:layout_gravity="center_horizontal"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"/>
     </LinearLayout>
