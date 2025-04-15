@@ -62,7 +62,6 @@ public class lab3_bai1 extends AppCompatActivity {
             return windowInsets;
         });
 
-        // --- Xử lý sự kiện nút ---
         btnGuiThongTin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
