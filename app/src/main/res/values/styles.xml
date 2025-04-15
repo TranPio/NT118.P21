@@ -7,7 +7,6 @@
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:backgroundTint">#A5A5A5</item>
     </style>
-    <!-- Base style dùng cho tất cả các nút -->
     <style name="KeyBase">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
@@ -18,21 +17,33 @@
         <item name="android:backgroundTint">#555555</item>
     </style>
 
-    <!-- Style nút xám nhạt (AC, +/-) -->
     <style name="KeyGray" parent="KeyBase">
         <item name="android:textColor">#000000</item>
         <item name="android:backgroundTint">#A5A5A5</item>
     </style>
 
-    <!-- Style nút đen (số) -->
     <style name="KeyDark" parent="KeyBase">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:backgroundTint">#333333</item>
     </style>
 
-    <!-- Style nút cam (dấu phép tính) -->
     <style name="KeyOrange" parent="KeyBase">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:backgroundTint">#FF9500</item>
     </style>
+
+    <style name="KeyLab3Base">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_margin">2dp</item> <item name="android:textSize">24sp</item> <item name="android:textColor">#FFFFFF</item> <item name="android:backgroundTint">#444444</item> <item name="android:insetTop">0dp</item> <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:stateListAnimator">@null</item> <item name="android:background">@drawable/button_background_lab3_bai2</item>
+    </style>
+
+    <style name="KeyLab3Delete" parent="KeyLab3Base">
+        <item name="android:textSize">16sp</item> </style>
+
 </resources>
