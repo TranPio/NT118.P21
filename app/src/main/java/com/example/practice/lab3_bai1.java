@@ -159,5 +159,8 @@ public class lab3_bai1 extends AppCompatActivity {
         intent.putExtras(bundle);
 
         startActivity(intent);
+
+
     }
+
 }

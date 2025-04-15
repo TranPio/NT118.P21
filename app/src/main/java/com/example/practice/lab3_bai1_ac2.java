@@ -48,16 +48,19 @@ public class lab3_bai1_ac2 extends AppCompatActivity {
         // -------------------------
 
         // --- Nhận dữ liệu và hiển thị ---
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             tvHoTen.setText(extras.getString("hoTen"));
             tvCMND.setText(extras.getString("cmnd"));
             tvBangCap.setText(extras.getString("bangCap"));
             tvSoThich.setText(extras.getString("soThich"));
+
+
             // Xử lý nếu thông tin bổ sung trống
             String boSung = extras.getString("thongTinBoSung");
             if (TextUtils.isEmpty(boSung)) {
-                tvThongTinBoSung.setVisibility(View.GONE); // Ẩn nếu trống
+                tvThongTinBoSung.setVisibility(View.GONE);
                 // tvThongTinBoSung.setText("Không có thông tin bổ sung.");
             } else {
                 tvThongTinBoSung.setText(boSung);
