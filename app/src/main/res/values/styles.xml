@@ -45,15 +45,16 @@
         <item name="android:textSize">26sp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:gravity">center</item>
+        <item name="android:backgroundTint">#555555</item>
         <item name="android:background">@drawable/button_background_lab3_bai2</item>
     </style>
 
     <style name="KeyLab3Number" parent="KeyLab3BaseSquare">
-        <!-- Không dùng backgroundTint ở đây nữa -->
+        <item name="android:backgroundTint">#9D9D9D</item>
     </style>
 
     <style name="KeyLab3Operator" parent="KeyLab3BaseSquare">
-        <!-- Không dùng backgroundTint ở đây nữa -->
+        <item name="android:backgroundTint">#666666</item>
     </style>
 
     <style name="KeyLab3Delete">
