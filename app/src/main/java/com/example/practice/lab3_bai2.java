@@ -34,7 +34,6 @@ public class lab3_bai2 extends AppCompatActivity {
         if (btnDelete != null) {
             btnDelete.setOnClickListener(this::onButtonClick);
         }
-
         // 2. Duyệt qua các con trực tiếp của GridLayout để gán listener cho các nút số/toán tử
         int count = gridKeysLab3Bai2.getChildCount();
         for (int i = 0; i < count; i++) {
@@ -43,6 +42,7 @@ public class lab3_bai2 extends AppCompatActivity {
             if (view instanceof LinearLayout) {
                 continue; // Đi tiếp đến phần tử con tiếp theo của GridLayout
             }
+
             // Chỉ gán listener cho các Button (là các nút số và toán tử)
             if (view instanceof Button) {
                 Button btn = (Button) view;
@@ -56,7 +56,8 @@ public class lab3_bai2 extends AppCompatActivity {
         tvResultLab3Bai2.setText("0");
     }
 
-
+    // Hàm onButtonClick và calculateResult KHÔNG THAY ĐỔI
+    // vì chúng hoạt động dựa trên TEXT của nút được bấm.
 
     // Hàm xử lý sự kiện click chung cho TẤT CẢ các nút
     private void onButtonClick(View view) {
@@ -65,16 +66,7 @@ public class lab3_bai2 extends AppCompatActivity {
 
         switch (text) {
             case "DELETE":
-                if (!current.equals("0") && !current.equals("Error") && current.length() > 0) {
-                    String newText = current.substring(0, current.length() - 1);
-                    if (newText.isEmpty() || newText.equals("-")) {
-                        tvResultLab3Bai2.setText("0");
-                    } else {
-                        tvResultLab3Bai2.setText(newText);
-                    }
-                } else {
-                    tvResultLab3Bai2.setText("0");
-                }
+                tvResultLab3Bai2.setText("0");  // Xóa toàn bộ
                 break;
             case "=":
                 calculateResult();
@@ -86,8 +78,7 @@ public class lab3_bai2 extends AppCompatActivity {
                         tvResultLab3Bai2.setText("0.");
                     } else if (text.matches("[+\\-×÷]")) {
                         tvResultLab3Bai2.setText("0" + text);
-                    }
-                    else {
+                    } else {
                         tvResultLab3Bai2.setText(text);
                     }
                 } else {
@@ -95,6 +86,7 @@ public class lab3_bai2 extends AppCompatActivity {
                 }
                 break;
         }
+
     }
 
     // Hàm tính toán kết quả (Không thay đổi)
@@ -102,8 +94,7 @@ public class lab3_bai2 extends AppCompatActivity {
         try {
             String expr = tvResultLab3Bai2.getText().toString()
                     .replace("×", "*")
-                    .replace("÷", "/")
-                    .replace(",", ".");
+                    .replace("÷", "/");
 
             if (expr.matches(".*[+\\-*/.]$") && expr.length() > 1) {
                 expr = expr.substring(0, expr.length() - 1);

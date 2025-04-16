@@ -13,7 +13,7 @@
         </DropdownSelection>
         <DialogSelection />
       </SelectionState>
-      <SelectionState runConfigName="lab3_bai2">
+      <SelectionState runConfigName="bai4 (2)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="lab3_bai2 (1)">
@@ -25,7 +25,7 @@
       <SelectionState runConfigName="lab3_bai2 (3)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="lab3_bai2 (4)">
+      <SelectionState runConfigName="lab3_bai2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

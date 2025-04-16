@@ -50,18 +50,19 @@
             android:layout_gravity="fill"
             android:orientation="horizontal"
             android:weightSum="3"
-            android:baselineAligned="false"
-            > <View
+            android:baselineAligned="false">
+            <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:background="#333333"
-            /> <Button
+            android:background="#333333" />
+            <Button
             android:id="@+id/btnDeleteLab3Bai2"
             style="@style/KeyLab3Delete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+                android:textSize="21sp"
             android:layout_marginStart="2dp" android:text="DELETE" />
 
         </LinearLayout>
@@ -86,4 +87,5 @@
         <Button android:text="@string/equal" style="@style/KeyLab3Operator" />
         <Button android:text="@string/plus" style="@style/KeyLab3Operator" />
     </GridLayout>
+
 </LinearLayout>

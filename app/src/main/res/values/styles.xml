@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="ShapeAppearanceOverlay.Rectangle">
-        <item name="cornerFamily">cut</item> <item name="cornerSize">0dp</item> </style>
+    <style name="ShapeAppearanceOverlay.Rectangle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">0dp</item> </style>
 
     <style name="KeyLab3BaseSquare" parent="Widget.MaterialComponents.Button">
         <item name="android:layout_width">0dp</item>
