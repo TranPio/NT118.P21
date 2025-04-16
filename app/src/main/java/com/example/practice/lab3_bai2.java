@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.LinearLayout; // Import LinearLayout
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 // Thêm thư viện tính toán biểu thức
@@ -16,53 +16,76 @@ public class lab3_bai2 extends AppCompatActivity {
 
     private TextView tvResultLab3Bai2;
     private GridLayout gridKeysLab3Bai2;
-    private Button btnDeleteLab3Bai2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Sử dụng layout activity_lab3_bai2.xml
+        // Đảm bảo sử dụng đúng file layout XML MỚI (với LinearLayout lồng trong GridLayout)
         setContentView(R.layout.activity_lab3_bai2);
 
         // Ánh xạ các thành phần giao diện
         tvResultLab3Bai2 = findViewById(R.id.tvResultLab3Bai2);
         gridKeysLab3Bai2 = findViewById(R.id.gridKeysLab3Bai2);
-        btnDeleteLab3Bai2 = findViewById(R.id.btnDeleteLab3Bai2);
 
-        // Đặt listener cho nút DELETE
-        btnDeleteLab3Bai2.setOnClickListener(this::onDeleteClick);
+        // *** Cập nhật logic gán Listener ***
 
-        // Đặt listener cho các nút trong GridLayout
+        // 1. Tìm nút DELETE bằng ID và gán listener (vì nó nằm trong LinearLayout con)
+        Button btnDelete = findViewById(R.id.btnDeleteLab3Bai2);
+        if (btnDelete != null) {
+            btnDelete.setOnClickListener(this::onButtonClick);
+        }
+
+        // 2. Duyệt qua các con trực tiếp của GridLayout để gán listener cho các nút số/toán tử
         int count = gridKeysLab3Bai2.getChildCount();
         for (int i = 0; i < count; i++) {
             View view = gridKeysLab3Bai2.getChildAt(i);
+            // Bỏ qua LinearLayout ở hàng đầu tiên
+            if (view instanceof LinearLayout) {
+                continue; // Đi tiếp đến phần tử con tiếp theo của GridLayout
+            }
+            // Chỉ gán listener cho các Button (là các nút số và toán tử)
             if (view instanceof Button) {
                 Button btn = (Button) view;
-                // Bỏ qua nút DELETE vì đã set listener riêng
-                if (btn.getId() != R.id.btnDeleteLab3Bai2) {
-                    btn.setOnClickListener(this::onButtonClick);
-                }
+                // Không cần kiểm tra ID ở đây nữa vì LinearLayout đã được bỏ qua
+                btn.setOnClickListener(this::onButtonClick);
             }
         }
+        // *** Kết thúc cập nhật logic gán Listener ***
+
+        // Đặt giá trị khởi đầu
+        tvResultLab3Bai2.setText("0");
     }
 
-    // Xử lý sự kiện click cho các nút số và phép tính
+
+
+    // Hàm xử lý sự kiện click chung cho TẤT CẢ các nút
     private void onButtonClick(View view) {
         String text = ((Button) view).getText().toString();
         String current = tvResultLab3Bai2.getText().toString();
 
         switch (text) {
+            case "DELETE":
+                if (!current.equals("0") && !current.equals("Error") && current.length() > 0) {
+                    String newText = current.substring(0, current.length() - 1);
+                    if (newText.isEmpty() || newText.equals("-")) {
+                        tvResultLab3Bai2.setText("0");
+                    } else {
+                        tvResultLab3Bai2.setText(newText);
+                    }
+                } else {
+                    tvResultLab3Bai2.setText("0");
+                }
+                break;
             case "=":
                 calculateResult();
                 break;
 
-            default: // Các nút số, phép tính, dấu chấm
+            default: // Numbers, operators, dot
                 if (current.equals("0") || current.equals("Error")) {
-                    // Thay thế "0" hoặc "Error" bằng ký tự mới (trừ khi là phép tính hoặc dấu chấm bắt đầu)
-                    if (text.matches("[+\\-×÷]") && current.equals("0")) {
-                        tvResultLab3Bai2.append(text); // Cho phép bắt đầu bằng phép tính nếu đang là 0
-                    } else if (text.equals(".") && current.equals("0")) {
-                        tvResultLab3Bai2.setText("0."); // Bắt đầu bằng 0.
+                    if (text.equals(".")) {
+                        tvResultLab3Bai2.setText("0.");
+                    } else if (text.matches("[+\\-×÷]")) {
+                        tvResultLab3Bai2.setText("0" + text);
                     }
                     else {
                         tvResultLab3Bai2.setText(text);
@@ -74,56 +97,39 @@ public class lab3_bai2 extends AppCompatActivity {
         }
     }
 
-    // Xử lý sự kiện click cho nút DELETE
-    private void onDeleteClick(View view) {
-        String current = tvResultLab3Bai2.getText().toString();
-        if (!current.equals("0") && !current.equals("Error") && current.length() > 0) {
-            String newText = current.substring(0, current.length() - 1);
-            if (newText.isEmpty() || newText.equals("-")) { // Nếu xóa hết hoặc chỉ còn dấu "-"
-                tvResultLab3Bai2.setText("0");
-            } else {
-                tvResultLab3Bai2.setText(newText);
-            }
-        } else {
-            // Nếu đang là "0" hoặc "Error" thì không làm gì cả
-            tvResultLab3Bai2.setText("0");
-        }
-    }
-
-
-    // Hàm tính toán kết quả
+    // Hàm tính toán kết quả (Không thay đổi)
     private void calculateResult() {
         try {
             String expr = tvResultLab3Bai2.getText().toString()
-                    .replace("×", "*") // Thay thế ký tự hiển thị bằng ký tự tính toán
+                    .replace("×", "*")
                     .replace("÷", "/")
-                    .replace(",", "."); // Đảm bảo dùng dấu chấm cho số thập phân
+                    .replace(",", ".");
 
-            // Xử lý trường hợp kết thúc bằng phép tính hoặc dấu chấm
-            if (expr.matches(".*[+\\-*/.]$")) {
+            if (expr.matches(".*[+\\-*/.]$") && expr.length() > 1) {
                 expr = expr.substring(0, expr.length() - 1);
             }
 
-            // Kiểm tra nếu biểu thức rỗng sau khi xóa
-            if (expr.isEmpty()) {
+            if (expr.isEmpty() || expr.equals("-")) {
                 tvResultLab3Bai2.setText("0");
                 return;
             }
-
+            if (expr.matches("^[+\\-*/]$")) {
+                tvResultLab3Bai2.setText("Error");
+                return;
+            }
 
             Expression expression = new ExpressionBuilder(expr).build();
             double result = expression.evaluate();
 
-            // Hiển thị kết quả: số nguyên nếu không có phần thập phân
             if (result == (long) result) {
                 tvResultLab3Bai2.setText(String.valueOf((long) result));
             } else {
-                // Làm tròn hoặc định dạng nếu cần
-                tvResultLab3Bai2.setText(String.format("%.4f", result).replaceAll("\\.?0*$", "")); // Ví dụ làm tròn 4 chữ số và bỏ số 0 thừa
-                // tvResultLab3Bai2.setText(String.valueOf(result)); // Hoặc hiển thị đầy đủ
+                String formattedResult = String.format("%.4f", result).replaceAll("\\.?0*$", "");
+                if (formattedResult.equals("-0")) formattedResult = "0";
+                tvResultLab3Bai2.setText(formattedResult);
             }
         } catch (Exception e) {
-            tvResultLab3Bai2.setText("Error"); // Hiển thị lỗi nếu biểu thức không hợp lệ
+            tvResultLab3Bai2.setText("Error");
         }
     }
 }

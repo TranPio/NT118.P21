@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <style name="ShapeAppearanceOverlay.Rectangle">
+        <item name="cornerFamily">cut</item> <item name="cornerSize">0dp</item> </style>
+
+    <style name="KeyLab3BaseSquare" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">1dp</item> <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Rectangle</item>
+        <item name="android:insetTop">0dp</item> <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
+    <style name="KeyLab3Number" parent="KeyLab3BaseSquare">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:backgroundTint">#616161</item> </style>
+
+    <style name="KeyLab3Operator" parent="KeyLab3BaseSquare">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:backgroundTint">#333333</item> </style>
+
+    <style name="KeyLab3Delete" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">20sp</item> <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:backgroundTint">#333333</item> <item name="android:layout_margin">1dp</item> <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Rectangle</item>
+        <item name="android:insetTop">0dp</item> <item name="android:insetBottom">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+    </style>
+
     <style name="Button_Lab3">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -8,7 +45,6 @@
         <item name="android:backgroundTint">#A5A5A5</item>
     </style>
 
-    <!-- Base dùng chung -->
     <style name="KeyBase">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
@@ -19,7 +55,6 @@
         <item name="android:backgroundTint">#555555</item>
     </style>
 
-    <!-- Style dùng cho các bài khác -->
     <style name="KeyGray" parent="KeyBase">
         <item name="android:textColor">#000000</item>
         <item name="android:backgroundTint">#A5A5A5</item>
@@ -35,35 +70,4 @@
         <item name="android:backgroundTint">#FF9500</item>
     </style>
 
-    <!-- Style riêng cho Lab3_Bai2 -->
-    <style name="KeyLab3BaseSquare">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">0dp</item>
-        <item name="android:layout_columnWeight">1</item>
-        <item name="android:layout_rowWeight">1</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:textSize">26sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:gravity">center</item>
-        <item name="android:backgroundTint">#555555</item>
-        <item name="android:background">@drawable/button_background_lab3_bai2</item>
-    </style>
-
-    <style name="KeyLab3Number" parent="KeyLab3BaseSquare">
-        <item name="android:backgroundTint">#9D9D9D</item>
-    </style>
-
-    <style name="KeyLab3Operator" parent="KeyLab3BaseSquare">
-        <item name="android:backgroundTint">#666666</item>
-    </style>
-
-    <style name="KeyLab3Delete">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:textSize">16sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">@drawable/button_background_lab3_bai2</item>
-    </style>
 </resources>
