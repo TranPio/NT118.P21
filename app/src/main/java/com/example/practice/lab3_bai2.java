@@ -89,7 +89,7 @@ public class lab3_bai2 extends AppCompatActivity {
 
     }
 
-    // Hàm tính toán kết quả (Không thay đổi)
+    // Hàm tính toán kết quả sử dụng ExpressionBuilder
     private void calculateResult() {
         try {
             String expr = tvResultLab3Bai2.getText().toString()
@@ -115,7 +115,8 @@ public class lab3_bai2 extends AppCompatActivity {
             if (result == (long) result) {
                 tvResultLab3Bai2.setText(String.valueOf((long) result));
             } else {
-                String formattedResult = String.format("%.4f", result).replaceAll("\\.?0*$", "");
+                String formattedResult = String.format("%.4f", result).
+                        replaceAll("\\.?0*$", "");
                 if (formattedResult.equals("-0")) formattedResult = "0";
                 tvResultLab3Bai2.setText(formattedResult);
             }
