@@ -1,57 +1,46 @@
-package com.example.lab4; // Thay bằng package của bạn
+package com.example.lab4;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-
-import android.content.Intent;
+import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Bai1_2 extends AppCompatActivity {
-
-    LinearLayout mainLayout;
-    Button btnStartMySetting;
-    SharedPreferences sharedPreferences;
+    private EditText etDisplayName, etEmail;
+    private Button btnSave, btnLoad;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bai1_2);
 
-        mainLayout = findViewById(R.id.mainLayout);
-        btnStartMySetting = findViewById(R.id.btnStartMySetting);
+        etDisplayName = findViewById(R.id.etDisplayName);
+        etEmail       = findViewById(R.id.etEmail);
+        btnSave       = findViewById(R.id.btnSaveSettings);
+        btnLoad       = findViewById(R.id.btnLoadSettings);
 
-        // Lấy SharedPreferences mặc định của ứng dụng
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = getSharedPreferences("SettingsPrefs", Context.MODE_PRIVATE);
 
-        btnStartMySetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Bai1_2.this, SettingsActivity.class);
-                startActivity(intent);
-            }
+        btnSave.setOnClickListener(v -> {
+            String name = etDisplayName.getText().toString();
+            String email = etEmail.getText().toString();
+            prefs.edit()
+                    .putString("display_name", name)
+                    .putString("email", email)
+                    .apply();
+            Toast.makeText(this, "Settings saved", Toast.LENGTH_SHORT).show();
         });
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // Cập nhật màu nền mỗi khi Activity quay lại foreground
-        updateBackgroundColor();
-    }
-
-    private void updateBackgroundColor() {
-        // Đọc giá trị từ CheckBoxPreference
-        boolean useRedBackground = sharedPreferences.getBoolean("background_color_pref", false); // false là giá trị mặc định
-
-        if (useRedBackground) {
-            mainLayout.setBackgroundColor(Color.RED);
-        } else {
-            mainLayout.setBackgroundColor(Color.BLUE);
-        }
+        btnLoad.setOnClickListener(v -> {
+            String name = prefs.getString("display_name", "");
+            String email = prefs.getString("email", "");
+            etDisplayName.setText(name);
+            etEmail.setText(email);
+            Toast.makeText(this, "Settings loaded", Toast.LENGTH_SHORT).show();
+        });
     }
 }
