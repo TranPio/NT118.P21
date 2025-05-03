@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="30dp"
-    android:gravity="center_horizontal"
-    tools:context=".Bai1_1">
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Đăng nhập hệ thống"
-        android:textSize="24sp"
-        android:textColor="#FF0000"
+        android:textSize="30sp"
+        android:textColor="#03A9F4"
+        android:layout_marginTop="25dp"
         android:textStyle="bold"
-        android:layout_marginBottom="40dp"/>
+        android:layout_gravity="center"/>
 
     <EditText
         android:id="@+id/edtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên đăng nhập"
-        android:layout_marginBottom="15dp"/>
+        android:hint="Tên đăng nhập"
+        android:textSize="19sp"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập mật khẩu"
+        android:hint="Mật khẩu"
+        android:textSize="19sp"
         android:inputType="textPassword"
-        android:layout_marginBottom="15dp"/>
+        android:layout_marginTop="15dp"/>
 
-    <CheckBox
-        android:id="@+id/chkRememberMe"
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/chkRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nhớ đăng nhập"
-        android:layout_gravity="start"
-        android:layout_marginBottom="30dp"/>
+        android:textSize="17sp"
+        android:layout_marginTop="15dp"
+        app:buttonTint="@color/checkbox_color" />
+
 
     <Button
-        android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="XÁC NHẬN" />
-
+        android:text="XÁC NHẬN"
+        android:backgroundTint="#5A5A5B"
+        android:layout_marginTop="25dp"/>
 </LinearLayout>

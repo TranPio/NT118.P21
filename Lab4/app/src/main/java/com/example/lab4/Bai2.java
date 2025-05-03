@@ -1,4 +1,4 @@
-package com.example.lab4; // Thay bằng package của bạn
+package com.example.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
