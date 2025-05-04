@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".Bai3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Demo: External Storage"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp" />
+
+    <EditText
+        android:id="@+id/edtInput"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:hint="Nhập dữ liệu để lưu (Tệp văn bản)"
+        android:gravity="top"
+        android:textSize="20sp"
+        android:layout_marginTop="25dp"
+        android:background="@android:drawable/editbox_background"
+        android:inputType="textMultiLine"
+        android:maxLines="5"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="Lưu"
+            android:textSize="20sp"
+            android:backgroundTint="#5A5A5B"/>
+
+        <Button
+            android:id="@+id/btnLoad"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Đọc Dữ Liệu"
+            android:textSize="20sp"
+            android:backgroundTint="#5A5A5B"/>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#5A5A5B"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Không có dữ liệu trong file external.txt"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:background="#EEEEEE"
+        android:layout_marginTop="25dp"/>
+
+</LinearLayout>

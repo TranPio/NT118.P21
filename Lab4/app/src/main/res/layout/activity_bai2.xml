@@ -16,6 +16,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="16dp"/>
 
     <EditText
@@ -25,9 +26,11 @@
         android:hint="Nhập ghi chú..."
         android:inputType="text"
         android:textSize="18sp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
 
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -39,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:text="Thêm"
+            android:backgroundTint="#5A5A5B"
             android:textSize="18sp"/>
 
         <Button
@@ -48,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="Cập nhật"
+            android:backgroundTint="#5A5A5B"
             android:textSize="18sp"/>
     </LinearLayout>
 
@@ -56,5 +61,5 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="20dp"/>
 </LinearLayout>
