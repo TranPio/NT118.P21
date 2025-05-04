@@ -243,9 +243,6 @@ public class Bai4_1 extends AppCompatActivity {
 
         String code = edtCode.getText().toString().trim(); // Mã lớp lấy từ ô edt (đã disable)
 
-        // Có thể thêm hộp thoại xác nhận trước khi xóa
-        // new AlertDialog.Builder(this) ... show();
-
         int result = dbHelper.deleteClass(code);
         if (result > 0) {
             Toast.makeText(this, "Xoá thành công!", Toast.LENGTH_SHORT).show();
