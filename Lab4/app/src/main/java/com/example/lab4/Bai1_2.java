@@ -1,46 +1,102 @@
-package com.example.lab4;
+package com.example.lab4; // Thay bằng package của bạn
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager; // Import PreferenceManager
 
-public class Bai1_2 extends AppCompatActivity {
-    private EditText etDisplayName, etEmail;
-    private Button btnSave, btnLoad;
-    private SharedPreferences prefs;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout; // Import LinearLayout
+
+public class Bai1_2 extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+
+    private static final String TAG = "Bai1_2Activity";
+    LinearLayout mainLayout; // Tham chiếu đến LinearLayout gốc của activity_bai1_2.xml
+    Button btnStartMySetting;
+    SharedPreferences sharedPreferences;
+
+    // Key của preference đã định nghĩa trong preferences.xml
+    public static final String KEY_PREF_BG_COLOR_RED = "background_color_red_pref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bai1_2);
+        Log.d(TAG, "onCreate: Activity started");
 
-        etDisplayName = findViewById(R.id.etDisplayName);
-        etEmail       = findViewById(R.id.etEmail);
-        btnSave       = findViewById(R.id.btnSaveSettings);
-        btnLoad       = findViewById(R.id.btnLoadSettings);
+        mainLayout = findViewById(R.id.mainLayout_bai1_2); // Ánh xạ LinearLayout
+        btnStartMySetting = findViewById(R.id.btnStartMySetting);
 
-        prefs = getSharedPreferences("SettingsPrefs", Context.MODE_PRIVATE);
+        // Lấy SharedPreferences mặc định của ứng dụng
+        // Các preference từ PreferenceFragmentCompat sẽ được lưu vào đây
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
-        btnSave.setOnClickListener(v -> {
-            String name = etDisplayName.getText().toString();
-            String email = etEmail.getText().toString();
-            prefs.edit()
-                    .putString("display_name", name)
-                    .putString("email", email)
-                    .apply();
-            Toast.makeText(this, "Settings saved", Toast.LENGTH_SHORT).show();
+        // Đăng ký lắng nghe sự thay đổi của SharedPreferences
+        sharedPreferences.registerOnSharedPreferenceChangeListener(this);
+
+        // Cập nhật màu nền ban đầu khi Activity được tạo
+        updateBackgroundColor();
+
+        btnStartMySetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Mở SettingsActivity
+                Intent intent = new Intent(Bai1_2.this, SettingsActivity.class);
+                startActivity(intent);
+            }
         });
+    }
 
-        btnLoad.setOnClickListener(v -> {
-            String name = prefs.getString("display_name", "");
-            String email = prefs.getString("email", "");
-            etDisplayName.setText(name);
-            etEmail.setText(email);
-            Toast.makeText(this, "Settings loaded", Toast.LENGTH_SHORT).show();
-        });
+    /**
+     * Hàm cập nhật màu nền dựa trên giá trị trong SharedPreferences.
+     */
+    private void updateBackgroundColor() {
+        // Đọc giá trị boolean từ preference có key là KEY_PREF_BG_COLOR_RED
+        // Giá trị mặc định là false (tức là màu xanh nếu không có cài đặt)
+        boolean useRedBackground = sharedPreferences.getBoolean(KEY_PREF_BG_COLOR_RED, false);
+
+        if (useRedBackground) {
+            mainLayout.setBackgroundColor(Color.RED);
+            Log.d(TAG, "updateBackgroundColor: Set to RED");
+        } else {
+            mainLayout.setBackgroundColor(Color.BLUE);
+            Log.d(TAG, "updateBackgroundColor: Set to BLUE");
+        }
+    }
+
+    /**
+     * Được gọi khi một SharedPreferences thay đổi.
+     */
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Log.d(TAG, "onSharedPreferenceChanged: Key changed: " + key);
+        // Kiểm tra xem key thay đổi có phải là key màu nền không
+        if (key.equals(KEY_PREF_BG_COLOR_RED)) {
+            updateBackgroundColor(); // Cập nhật lại màu nền
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: Activity resumed, updating background color");
+        // Có thể gọi updateBackgroundColor() ở đây để đảm bảo màu nền luôn đúng
+        // khi quay lại Activity, nhưng onSharedPreferenceChanged đã xử lý việc này
+        // nếu preference thay đổi khi SettingsActivity đóng.
+        // Tuy nhiên, gọi ở đây để đảm bảo khi Activity mới được tạo hoặc resume
+        // mà không có thay đổi preference trước đó, màu vẫn được áp dụng đúng.
+        updateBackgroundColor();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy: Unregistering SharedPreferences listener");
+        // Hủy đăng ký lắng nghe để tránh rò rỉ bộ nhớ
+        sharedPreferences.unregisterOnSharedPreferenceChangeListener(this);
     }
 }

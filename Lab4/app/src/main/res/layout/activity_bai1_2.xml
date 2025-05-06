@@ -1,35 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout_bai1_2" android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp"
-    android:layout_height="match_parent">
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    tools:context=".Bai1_2">
 
-    <EditText
-        android:id="@+id/etDisplayName"
-        android:hint="Display Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <EditText
-        android:id="@+id/etEmail"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"/>
+        android:text="Màn hình chính (Bai1_2)"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"/>
 
     <Button
-        android:id="@+id/btnSaveSettings"
-        android:text="Save Settings"
-        android:layout_width="match_parent"
+        android:id="@+id/btnStartMySetting"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"/>
+        android:text="Start My Setting"
+        android:backgroundTint="#5A5A5B"
+        android:layout_marginTop="20dp"/>
 
-    <Button
-        android:id="@+id/btnLoadSettings"
-        android:text="Load Settings"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"/>
+
+
 </LinearLayout>
