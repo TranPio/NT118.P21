@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation(libs.appcompat)
     implementation(libs.material)

@@ -1,6 +1,7 @@
 package com.example.lab4;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -10,9 +11,7 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        // Hiển thị PreferenceFragmentCompat
-        // Sử dụng android.R.id.content làm container mặc định của Activity
+        // Không cần file layout XML riêng cho SettingsActivity nếu chỉ dùng Fragment
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -20,18 +19,21 @@ public class SettingsActivity extends AppCompatActivity {
                     .commit();
         }
 
-        // Thêm nút "Up" (Back) trên ActionBar (tùy chọn)
+        // Hiển thị nút Up (Back) trên ActionBar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("My Setting.."); // Đặt tiêu đề cho màn hình Settings
+            getSupportActionBar().setTitle("My Setting..");
         }
     }
 
-    // Xử lý sự kiện khi nhấn nút "Up" trên ActionBar
+    // Xử lý khi nút Up được nhấn
     @Override
-    public boolean onSupportNavigateUp() {
-        finish(); // Đóng SettingsActivity và quay lại màn hình trước
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // Đóng SettingsActivity và quay lại màn hình trước đó
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // Inner class cho PreferenceFragmentCompat
@@ -41,5 +43,7 @@ public class SettingsActivity extends AppCompatActivity {
             // Load các preferences từ file XML
             setPreferencesFromResource(R.xml.preferences, rootKey);
         }
+        // PreferenceFragmentCompat tự động lưu giá trị vào SharedPreferences khi người dùng thay đổi.
+        // Không cần hiển thị Toast true/false ở đây.
     }
 }

@@ -4,9 +4,10 @@
     <PreferenceCategory app:title="MY PREFERENCE CATEGORY">
 
         <CheckBoxPreference
-            app:key="background_color_red_pref" app:title="Cấu hình màu nền"
-            app:summaryOn="Nền màu đỏ (Checked)"
-            app:summaryOff="Nền màu xanh (Unchecked)"
+            app:key="background_color_red_pref"
+            app:title="Cấu hình màu nền"
+            app:summaryOn="Nền màu đỏ (Đã chọn)"
+            app:summaryOff="Nền màu xanh (Chưa chọn)"
             app:defaultValue="false" /> </PreferenceCategory>
 
 </PreferenceScreen>

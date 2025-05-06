@@ -33,15 +33,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Bai4_2"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".Bai4_1"
             android:exported="true">
             <intent-filter>
@@ -73,9 +64,16 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="My Setting.."
+            android:parentActivityName=".Bai1_2"> <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".Bai1_2" />
         </activity>
         <activity
             android:name=".Bai1_1"
@@ -86,15 +84,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>
