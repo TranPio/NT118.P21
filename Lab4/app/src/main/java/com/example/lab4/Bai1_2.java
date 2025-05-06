@@ -1,7 +1,7 @@
-package com.example.lab4; // Thay bằng package của bạn
+package com.example.lab4;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager; // Import PreferenceManager
+import androidx.preference.PreferenceManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,12 +10,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout; // Import LinearLayout
+import android.widget.LinearLayout;
 
 public class Bai1_2 extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private static final String TAG = "Bai1_2Activity";
-    LinearLayout mainLayout; // Tham chiếu đến LinearLayout gốc của activity_bai1_2.xml
+    LinearLayout mainLayout;
     Button btnStartMySetting;
     SharedPreferences sharedPreferences;
 
@@ -51,9 +51,6 @@ public class Bai1_2 extends AppCompatActivity implements SharedPreferences.OnSha
         });
     }
 
-    /**
-     * Hàm cập nhật màu nền dựa trên giá trị trong SharedPreferences.
-     */
     private void updateBackgroundColor() {
         // Đọc giá trị boolean từ preference có key là KEY_PREF_BG_COLOR_RED
         // Giá trị mặc định là false (tức là màu xanh nếu không có cài đặt)
@@ -68,9 +65,6 @@ public class Bai1_2 extends AppCompatActivity implements SharedPreferences.OnSha
         }
     }
 
-    /**
-     * Được gọi khi một SharedPreferences thay đổi.
-     */
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Log.d(TAG, "onSharedPreferenceChanged: Key changed: " + key);
