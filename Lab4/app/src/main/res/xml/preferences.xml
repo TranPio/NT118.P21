@@ -7,7 +7,7 @@
             app:key="background_color_red_pref"
             app:title="Cấu hình màu nền"
             app:summaryOn="Nền màu đỏ (Đã chọn)"
-            app:summaryOff="Nền màu xanh (Chưa chọn)"
-            app:defaultValue="false" /> </PreferenceCategory>
+            app:summaryOff="Nền màu xanh (Chưa chọn)" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

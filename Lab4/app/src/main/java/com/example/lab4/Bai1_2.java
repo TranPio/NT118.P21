@@ -15,11 +15,10 @@ import android.widget.Button;
 public class Bai1_2 extends AppCompatActivity {
 
     private static final String TAG = "Bai1_2Activity";
-    // LinearLayout mainLayout;
-    View colorDisplayArea; // *** Tham chiếu đến View hiển thị màu ***
+    View colorDisplayArea; // View hiển thị màu
     Button btnStartMySetting;
 
-    // Key của preference đã định nghĩa trong preferences.xml
+    // Key của preference
     public static final String KEY_PREF_BG_COLOR_RED = "background_color_red_pref";
 
     // Mã màu
@@ -32,9 +31,7 @@ public class Bai1_2 extends AppCompatActivity {
         setContentView(R.layout.activity_bai1_2);
         Log.d(TAG, "onCreate: Activity started");
 
-        // Ánh xạ các View
-        // mainLayout = findViewById(R.id.rootLayout_bai1_2); // Không cần nữa
-        colorDisplayArea = findViewById(R.id.colorDisplayArea); // *** Ánh xạ View màu ***
+        colorDisplayArea = findViewById(R.id.colorDisplayArea);
         btnStartMySetting = findViewById(R.id.btnStartMySetting);
 
         btnStartMySetting.setOnClickListener(new View.OnClickListener() {
@@ -51,26 +48,33 @@ public class Bai1_2 extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "onResume: Activity resumed, updating color display area");
-        // Cập nhật màu cho vùng hiển thị mỗi khi quay lại Activity
+        // Cập nhật màu khi quay lại Activity
         updateBackgroundColor();
     }
 
     /**
      * Đọc giá trị từ SharedPreferences và cập nhật màu nền cho colorDisplayArea.
+     * Nếu chưa có cài đặt, nền sẽ là màu trắng.
      */
     private void updateBackgroundColor() {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean isCheckedForRed = prefs.getBoolean(KEY_PREF_BG_COLOR_RED, false); // Mặc định là false (xanh)
 
-        // *** THAY ĐỔI Ở ĐÂY: Đặt màu cho colorDisplayArea ***
-        if (isCheckedForRed) {
-            colorDisplayArea.setBackgroundColor(COLOR_RED_BG); // Đặt màu đỏ
-            Log.d(TAG, "updateBackgroundColor: Color area set to RED");
+        // *** KIỂM TRA XEM KEY CÀI ĐẶT ĐÃ TỒN TẠI HAY CHƯA ***
+        if (prefs.contains(KEY_PREF_BG_COLOR_RED)) {
+            // Key đã tồn tại (nghĩa là người dùng đã vào Setting ít nhất 1 lần)
+            boolean isCheckedForRed = prefs.getBoolean(KEY_PREF_BG_COLOR_RED, false); // Lấy giá trị đã lưu
+
+            if (isCheckedForRed) {
+                colorDisplayArea.setBackgroundColor(COLOR_RED_BG); // Checked -> Màu đỏ
+                Log.d(TAG, "updateBackgroundColor: Pref exists. Set to RED");
+            } else {
+                colorDisplayArea.setBackgroundColor(COLOR_BLUE_BG); // Unchecked -> Màu xanh
+                Log.d(TAG, "updateBackgroundColor: Pref exists. Set to BLUE");
+            }
         } else {
-
-            colorDisplayArea.setBackgroundColor(COLOR_BLUE_BG); // Đặt màu xanh
-            Log.d(TAG, "updateBackgroundColor: Color area set to BLUE");
-
+            // Key chưa tồn tại (lần đầu chạy hoặc chưa vào Setting)
+            colorDisplayArea.setBackgroundColor(Color.WHITE); // Đặt màu trắng
+            Log.d(TAG, "updateBackgroundColor: Pref does not exist. Set to WHITE");
         }
     }
 }
