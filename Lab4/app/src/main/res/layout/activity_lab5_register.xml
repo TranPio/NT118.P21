@@ -1,10 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lab5_Register">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="30dp"
+    tools:context="Lab5_Register"> <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Đăng Ký Tài Khoản (Lab 5)"
+    android:textSize="24sp"
+    android:textColor="#FF0000"
+    android:textStyle="bold"
+    android:layout_marginBottom="40dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <EditText
+        android:id="@+id/edtRegUsername_lab5" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tên đăng nhập"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/edtRegPassword_lab5" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mật khẩu"
+        android:inputType="textPassword"
+        android:layout_marginBottom="15dp"/>
+
+    <EditText
+        android:id="@+id/edtRegConfirmPassword_lab5" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Xác nhận mật khẩu"
+        android:inputType="textPassword"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/btnRegister_lab5" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ĐĂNG KÝ"
+        android:backgroundTint="#5A5A5B"/>
+
+    <TextView
+        android:id="@+id/tvBackToLogin_lab5" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đã có tài khoản? Quay lại Đăng nhập"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:clickable="true"
+        android:focusable="true" />
+
+</LinearLayout>
