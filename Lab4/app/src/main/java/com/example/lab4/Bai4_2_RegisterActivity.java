@@ -93,7 +93,7 @@ public class Bai4_2_RegisterActivity extends AppCompatActivity { // Đổi tên 
         }
     }
 
-    // Hàm mã hóa MD5 (Để ở đây hoặc tạo lớp Util riêng)
+    // Hàm mã hóa MD5
     public static String getMd5Hash(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -118,4 +118,5 @@ public class Bai4_2_RegisterActivity extends AppCompatActivity { // Đổi tên 
         }
         super.onDestroy();
     }
+
 }

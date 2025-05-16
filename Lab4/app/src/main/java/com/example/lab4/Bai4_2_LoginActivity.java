@@ -172,7 +172,7 @@ public class Bai4_2_LoginActivity extends AppCompatActivity {
     }
 
 
-    // Hàm mã hóa MD5 (Copy từ Bai4_2_RegisterActivity hoặc tạo lớp Util riêng)
+    // Hàm mã hóa MD5
     public static String getMd5Hash(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");

@@ -44,6 +44,5 @@ public class SettingsActivity extends AppCompatActivity {
             setPreferencesFromResource(R.xml.preferences, rootKey);
         }
         // PreferenceFragmentCompat tự động lưu giá trị vào SharedPreferences khi người dùng thay đổi.
-        // Không cần hiển thị Toast true/false ở đây.
     }
 }

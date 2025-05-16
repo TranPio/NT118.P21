@@ -130,8 +130,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
         try {
-            cursor = db.query(TABLE_LOP, null, null, null, null, null, null);
-            Log.d(TAG, "getAllClasses: Query executed. Row count: " + (cursor != null ? cursor.getCount() : "null cursor"));
+            cursor = db.query(TABLE_LOP, null, null, null,
+                    null, null, null);
+            Log.d(TAG, "getAllClasses: Query executed. Row count: " +
+                    (cursor != null ? cursor.getCount() : "null cursor"));
         } catch (Exception e) {
             Log.e(TAG, "getAllClasses: Query failed", e);
             if (cursor != null) cursor.close();

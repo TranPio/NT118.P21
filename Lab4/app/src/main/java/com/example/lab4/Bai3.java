@@ -1,8 +1,8 @@
 package com.example.lab4;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView; // Đảm bảo import TextView
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -60,9 +60,6 @@ public class Bai3 extends AppCompatActivity {
                 loadDataFromExternalStorage();
             }
         });
-
-        // Có thể tùy chọn load dữ liệu lần đầu khi mở app
-        // loadDataFromExternalStorage();
     }
 
     /**
@@ -108,15 +105,18 @@ public class Bai3 extends AppCompatActivity {
             Toast.makeText(this, "Không thể truy cập thư mục lưu trữ ngoài!", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        /**
+         * Ghi dữ liệu từ EditText vào file trên External Storage.
+         */
         FileOutputStream fos = null;
         try {
             fos = new FileOutputStream(file); // Mở file để ghi đè
-            fos.write(data.getBytes(StandardCharsets.UTF_8)); // Ghi dữ liệu dạng byte với encoding UTF-8
-            // Không xóa EditText để người dùng thấy nội dung vừa nhập/lưu
-            // edtInput.setText("");
-            Toast.makeText(this, "Dữ liệu đã lưu vào External Storage", Toast.LENGTH_SHORT).show();
-            Log.i(TAG, "saveDataToExternalStorage: Data saved successfully to " + file.getAbsolutePath());
+            fos.write(data.getBytes(StandardCharsets.UTF_8));
+
+            Toast.makeText(this, "Dữ liệu đã lưu vào External Storage",
+                    Toast.LENGTH_SHORT).show();
+            Log.i(TAG, "saveDataToExternalStorage: Data saved successfully to " +
+                    file.getAbsolutePath());
         } catch (IOException e) {
             Log.e(TAG, "saveDataToExternalStorage: Error writing to file", e);
             Toast.makeText(this, "Lỗi khi lưu file!", Toast.LENGTH_SHORT).show();
@@ -153,18 +153,17 @@ public class Bai3 extends AppCompatActivity {
             txtResult.setText(errorMsg);
             return;
         }
-
+        /**
+         * Đọc dữ liệu từ file trên External Storage và hiển thị lên EditText và TextView.
+         */
         if (file.exists()) {
             Log.d(TAG, "loadDataFromExternalStorage: File exists, attempting to read.");
             FileInputStream fis = null;
             try {
                 fis = new FileInputStream(file);
-                // Đọc toàn bộ nội dung file (phù hợp với file nhỏ)
                 byte[] data = new byte[(int) file.length()];
                 int bytesRead = fis.read(data); // Đọc dữ liệu vào mảng byte
                 Log.d(TAG, "loadDataFromExternalStorage: Bytes read: " + bytesRead);
-
-                // Chuyển đổi byte array sang String sử dụng UTF-8
                 String fileContent = new String(data, StandardCharsets.UTF_8);
 
                 // Hiển thị nội dung lên cả EditText và TextView
@@ -172,8 +171,10 @@ public class Bai3 extends AppCompatActivity {
                 txtResult.setText(fileContent);
 
                 // Thông báo thành công
-                Toast.makeText(this, "Đọc dữ liệu từ External Storage thành công", Toast.LENGTH_SHORT).show();
-                Log.i(TAG, "loadDataFromExternalStorage: Data loaded successfully from " + file.getAbsolutePath());
+                Toast.makeText(this, "Đọc dữ liệu từ External Storage thành công",
+                        Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "loadDataFromExternalStorage: Data loaded successfully from " +
+                        file.getAbsolutePath());
 
             } catch (IOException e) {
                 Log.e(TAG, "loadDataFromExternalStorage: Error reading from file", e);

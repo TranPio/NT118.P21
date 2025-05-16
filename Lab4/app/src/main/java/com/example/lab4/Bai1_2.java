@@ -62,7 +62,8 @@ public class Bai1_2 extends AppCompatActivity {
         // *** KIỂM TRA XEM KEY CÀI ĐẶT ĐÃ TỒN TẠI HAY CHƯA ***
         if (prefs.contains(KEY_PREF_BG_COLOR_RED)) {
             // Key đã tồn tại (nghĩa là người dùng đã vào Setting ít nhất 1 lần)
-            boolean isCheckedForRed = prefs.getBoolean(KEY_PREF_BG_COLOR_RED, false); // Lấy giá trị đã lưu
+            boolean isCheckedForRed = prefs.getBoolean(KEY_PREF_BG_COLOR_RED, false);
+            // Lấy giá trị đã lưu
 
             if (isCheckedForRed) {
                 colorDisplayArea.setBackgroundColor(COLOR_RED_BG); // Checked -> Màu đỏ

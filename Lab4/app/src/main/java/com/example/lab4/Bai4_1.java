@@ -169,12 +169,10 @@ public class Bai4_1 extends AppCompatActivity {
         String code = edtCode.getText().toString().trim();
         String name = edtName.getText().toString().trim();
         String countStr = edtCount.getText().toString().trim();
-
         if (code.isEmpty() || name.isEmpty() || countStr.isEmpty()) {
             Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return;
         }
-
         try {
             int count = Integer.parseInt(countStr);
             if (count < 0) {
